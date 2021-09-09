@@ -1,4 +1,5 @@
 import { useState } from "react";
+import EmployeeTable from "./EmployeeTable";
 
 function SearchBox() {
   const [employees, setEmployees] = useState([
@@ -26,9 +27,15 @@ function SearchBox() {
       role: "Senior Engineer",
       email: "stephanie@gmail.com",
     },
+    {
+      id: 5,
+      name: "Steve Babb",
+      role: "Engineer",
+      email: "steve@gmail.com",
+    },
   ]);
 
-  const [filteredEmployees, setFilteredEmployees] = useState([{}]);
+  const [filteredEmployees, setFilteredEmployees] = useState(employees);
   const [query, setQuery] = useState("");
 
   const handleSearch = (e) => {
@@ -52,6 +59,7 @@ function SearchBox() {
         <input type="text" name="name" placeholder="enter name here" />
         <button>Search</button>
       </form>
+      <EmployeeTable employees={filteredEmployees} />
     </div>
   );
 }

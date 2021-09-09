@@ -1,8 +1,6 @@
-import { useState } from "react";
-
-function EmployeeTable() {
+function EmployeeTable(props) {
   function renderTableData() {
-    return employees.map((employee, index) => {
+    return props.employees.map((employee, index) => {
       const { id, name, role, email } = employee;
       return (
         <tr key={id}>
@@ -15,7 +13,7 @@ function EmployeeTable() {
     });
   }
 
-  function renderTableHeader() {
+  function renderTableHeader(employees) {
     let header = Object.keys(employees[0]);
     return header.map((key, index) => {
       return <th key={index}>{key.toUpperCase()}</th>;
@@ -27,7 +25,7 @@ function EmployeeTable() {
       <h3 id="title">Employee Data</h3>
       <table id="employees">
         <tbody>
-          <tr>{renderTableHeader()}</tr>
+          <tr>{renderTableHeader(props.employees)}</tr>
           {renderTableData()}
         </tbody>
       </table>
