@@ -37,10 +37,8 @@ const data = [
 ];
 
 function App() {
-  const [employees, setEmployees] = useState(data);
+  const [employees] = useState(data);
   const [filteredEmployees, setFilteredEmployees] = useState(employees);
-
-  let filtered = [];
 
   const handleSearch = function (e) {
     e.preventDefault();
