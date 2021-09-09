@@ -22,7 +22,6 @@ function EmployeeTable(props) {
 
   return (
     <div>
-      <h3 id="title">Employee Data</h3>
       <table id="employees">
         <tbody>
           <tr>{renderTableHeader(props.employees)}</tr>

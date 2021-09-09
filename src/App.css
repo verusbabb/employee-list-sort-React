@@ -26,3 +26,6 @@ th {
 #employees tr:nth-child(odd) {
   background-color: lightgray;
 }
+table {
+  margin-top: 20px;
+}
