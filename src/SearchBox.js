@@ -35,12 +35,20 @@ function SearchBox() {
     },
   ]);
 
-  const [query, setQuery] = useState("John Doe");
-
+  const [query, setQuery] = useState("");
+  let validName = true;
   const handleSearch = (e) => {
     e.preventDefault();
-    setQuery(e.target.elements.name.value);
+    let searchQuery = e.target.elements.name.value;
+    setQuery(searchQuery);
+    // let i=0;
+    // do {
+    //   employees[i].name === query
+    // }
+    // while(i<employees.length)
+
     console.log(query);
+    e.target.elements.name.value = "";
   };
 
   return (
@@ -49,14 +57,15 @@ function SearchBox() {
         <p>Enter employee name to begin search.</p>
         <input type="text" name="name" placeholder="enter name here" />
         <button>Search</button>
+        {!validName && <p>Name does not exist</p>}
       </form>
-      {<EmployeeTable employees={employees} title="All Employees" />}
-      {
+      {query && (
         <EmployeeTable
           employees={employees.filter((employee) => employee.name === query)}
           title="Filtered Employees"
         />
-      }
+      )}
+      {!query && <EmployeeTable employees={employees} title="All Employees" />}
     </div>
   );
 }
