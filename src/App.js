@@ -56,12 +56,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Employee List</h1>
+      <h1>Acme Employee Directory</h1>
       <Search handleSearch={handleSearch} />
       {filteredEmployees.length > 0 ? (
         <EmployeeTable employees={filteredEmployees} />
       ) : (
-        <p>Doesn't work here. Try again.</p>
+        <p>Yo Yo, ain't nobody like that here. Probably got fired.</p>
       )}
     </div>
   );
