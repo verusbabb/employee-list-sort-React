@@ -1,33 +1,6 @@
 import { useState } from "react";
 
 function EmployeeTable() {
-  const [employees, setEmployees] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      role: "Designer",
-      email: "john@gmail.com",
-    },
-    {
-      id: 2,
-      name: "Jane Doe",
-      role: "Engineer",
-      email: "jane@gmail.com",
-    },
-    {
-      id: 3,
-      name: "Nick Slick",
-      role: "Senior Designer",
-      email: "nick@gmail.com",
-    },
-    {
-      id: 4,
-      name: "Stephanie Nicole Perez",
-      role: "Senior Engineer",
-      email: "stephanie@gmail.com",
-    },
-  ]);
-
   function renderTableData() {
     return employees.map((employee, index) => {
       const { id, name, role, email } = employee;
