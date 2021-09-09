@@ -38,24 +38,31 @@ const data = [
 
 function App() {
   const [employees, setEmployees] = useState(data);
-  const [filtered, setFiltered] = useState(employees);
-  console.log(employees);
+  const [filteredEmployees, setFilteredEmployees] = useState(employees);
 
-  let filteredEmployees = [];
+  let filtered = [];
 
   const handleSearch = function (e) {
     e.preventDefault();
     console.log(e.target.value);
-    setFiltered(
-      employees.filter((employee) => employee.name.includes(e.target.value))
+
+    setFilteredEmployees(
+      employees.filter((employee) =>
+        employee.name.toLowerCase().includes(e.target.value.toLowerCase())
+      )
     );
-    console.log(filtered);
   };
+  console.log(filteredEmployees);
+
   return (
     <div className="App">
       <h1>Employee List</h1>
       <Search handleSearch={handleSearch} />
-      <EmployeeTable employees={filtered} />
+      {filteredEmployees.length > 0 ? (
+        <EmployeeTable employees={filteredEmployees} />
+      ) : (
+        <p>Doesn't work here. Try again.</p>
+      )}
     </div>
   );
 }
