@@ -1,3 +1,25 @@
+import styled from "styled-components";
+
+const Table = styled.table`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: gray;
+  }
+  tr:nth-child(odd) {
+    background-color: lightgray;
+  }
+`;
+
 function EmployeeTable(props) {
   function renderTableData() {
     return props.employees.map((employee, index) => {
@@ -23,12 +45,12 @@ function EmployeeTable(props) {
   return (
     <div>
       <h2>{props.title}</h2>
-      <table id="employees">
+      <Table>
         <tbody>
           <tr>{renderTableHeader(props.employees)}</tr>
           {renderTableData()}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 }

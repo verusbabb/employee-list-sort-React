@@ -1,7 +1,8 @@
-import "./App.css";
+// import "./App.css";
 import EmployeeTable from "./EmployeeTable";
 import Search from "./Search";
 import { useState } from "react";
+import styled from "styled-components";
 
 const data = [
   {
@@ -36,6 +37,18 @@ const data = [
   },
 ];
 
+const MainWrapper = styled.div`
+  text-align: center;
+  h1 {
+    color: green;
+    font-size: 48px;
+  }
+  body {
+    background-image: url("../public/staff.png");
+    background-color: lightgray;
+  }
+`;
+
 function App() {
   const [employees] = useState(data);
   const [filteredEmployees, setFilteredEmployees] = useState(employees);
@@ -52,16 +65,20 @@ function App() {
   };
   console.log(filteredEmployees);
 
+  const clearSearch = () => {
+    document.getElementById("searchbox").value = "";
+  };
+
   return (
-    <div className="App">
+    <MainWrapper>
       <h1>Acme Employee Directory</h1>
       <Search handleSearch={handleSearch} />
       {filteredEmployees.length > 0 ? (
         <EmployeeTable employees={filteredEmployees} />
       ) : (
-        <p>Yo Yo, ain't nobody like that here. Probably got fired.</p>
+        <p>{clearSearch()} No Match. Try again.</p>
       )}
-    </div>
+    </MainWrapper>
   );
 }
 
